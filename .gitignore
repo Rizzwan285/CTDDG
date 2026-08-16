@@ -1,0 +1,11 @@
+# Ignore heavy datasets and generated models
+data/
+outputs/
+Jupyter_Dock/
+__pycache__/
+*.pkl
+*.pkl.gz
+*.pth
+*.params
+*.json
+.ipynb_checkpoints/
