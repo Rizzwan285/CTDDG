@@ -1,0 +1,39 @@
+# CTDDG Pipeline — Python Dependencies
+# Tested on Linux with CUDA 11.x GPU
+#
+# NOTE: mxnet-cu112 is for CUDA 11.2. Adjust the package name for your
+# CUDA version (e.g., mxnet-cu101 for CUDA 10.1, mxnet-cu110 for 11.0).
+# See: https://mxnet.apache.org/versions/1.9.1/get_started?
+
+# Core deep learning framework
+mxnet-cu112==1.9.1
+
+# Chemistry / molecular informatics
+rdkit-pypi==2022.9.5
+molvs==0.1.1
+
+# Protein embeddings (only needed for data_preprocessing_1.ipynb)
+# bio-embeddings[all]  # Uncomment if running preprocessing; heavy install
+
+# Scientific computing
+numpy>=1.21,<1.24
+scipy>=1.7
+networkx>=2.6
+pandas>=1.3
+h5py>=3.0
+
+# Visualization (for notebooks)
+matplotlib>=3.5
+seaborn>=0.11
+
+# Evaluation / docking notebooks (optional)
+# pymol  # Install via conda: conda install -c conda-forge pymol-open-source
+# vina   # pip install vina
+# meeko  # pip install meeko
+# openbabel  # conda install -c conda-forge openbabel
+# prolif  # pip install prolif
+# MDAnalysis  # pip install MDAnalysis
+
+# Jupyter
+jupyter>=1.0
+ipykernel>=6.0
