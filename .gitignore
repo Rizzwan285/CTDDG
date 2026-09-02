@@ -9,6 +9,9 @@ __pycache__/
 *.params
 *.json
 .ipynb_checkpoints/
+cluster/*.log
+cluster/*.err
+*_executed.ipynb
 CTDDG_Bhavani_Setup_Context.md
 ProjectContext.md
 WEEK 1 PROGRESS.md
