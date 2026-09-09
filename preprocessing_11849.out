@@ -1,0 +1,91 @@
+========================================
+CTDDG preprocessing started
+Job ID: 11849
+Node: node004
+Date: Mon Aug 24 09:57:48 IST 2026
+========================================
+MXNet: 1.9.1
+GPUs: 2
+[NbConvertApp] Converting notebook code/data_preprocessing_1.ipynb to notebook
+mkdir: cannot create directory ‘/home/muhamed/repo/CTDDG/data/bindingdb/needle_outputs’: File exists
+mkdir: cannot create directory ‘/home/muhamed/repo/CTDDG/data/bindingdb/needle_outputs/train-test’: File exists
+mkdir: cannot create directory ‘/home/muhamed/repo/CTDDG/data/bindingdb/needle_outputs/within_train’: File exists
+Traceback (most recent call last):
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 154, in wrapped
+    asyncio.get_running_loop()
+RuntimeError: no running event loop
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/muhamed/.conda/envs/ctddg_env/bin/jupyter-nbconvert", line 6, in <module>
+    sys.exit(main())
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/jupyter_core/application.py", line 284, in launch_instance
+    super().launch_instance(argv=argv, **kwargs)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/traitlets/config/application.py", line 1082, in launch_instance
+    app.start()
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/nbconvertapp.py", line 420, in start
+    self.convert_notebooks()
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/nbconvertapp.py", line 597, in convert_notebooks
+    self.convert_single_notebook(notebook_filename)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/nbconvertapp.py", line 563, in convert_single_notebook
+    output, resources = self.export_single_notebook(
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/nbconvertapp.py", line 487, in export_single_notebook
+    output, resources = self.exporter.from_filename(
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/exporters/exporter.py", line 201, in from_filename
+    return self.from_file(f, resources=resources, **kw)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/exporters/exporter.py", line 220, in from_file
+    return self.from_notebook_node(
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/exporters/notebook.py", line 36, in from_notebook_node
+    nb_copy, resources = super().from_notebook_node(nb, resources, **kw)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/exporters/exporter.py", line 154, in from_notebook_node
+    nb_copy, resources = self._preprocess(nb_copy, resources)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/exporters/exporter.py", line 353, in _preprocess
+    nbc, resc = preprocessor(nbc, resc)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/preprocessors/base.py", line 48, in __call__
+    return self.preprocess(nb, resources)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/preprocessors/execute.py", line 103, in preprocess
+    self.preprocess_cell(cell, resources, index)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbconvert/preprocessors/execute.py", line 124, in preprocess_cell
+    cell = self.execute_cell(cell, index, store_history=True)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 158, in wrapped
+    return loop.run_until_complete(inner)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/muhamed/.conda/envs/ctddg_env/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+for i in range(5):
+    needle_scores = []
+    for p1 in range(1, len(ds_len[i][0])+1):
+        for p2 in range(1, len(ds_len[i][1])+1):
+            with open(f'{data_path}needle_outputs/train-test/ds{i+1}_proteins_{p1}_{p2}.txt') as f:
+                line = f.readlines()
+                needle_scores.append(float(line[24].strip()[26:-2]))
+    sns.histplot(needle_scores, element="step", stat="density", common_norm=False)
+    plt.ylabel("")
+    plt.xlim([0,100])
+    plt.savefig(f'{data_path}needle_outputs/train-test/images/ds{i+1}.png', dpi=300)
+    plt.show()
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mTypeError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[26], line 3[0m
+[1;32m      1[0m [38;5;28;01mfor[39;00m i [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m5[39m):
+[1;32m      2[0m     needle_scores [38;5;241m=[39m []
+[0;32m----> 3[0m     [38;5;28;01mfor[39;00m p1 [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m1[39m, [38;5;28;43mlen[39;49m[43m([49m[43mds_len[49m[43m[[49m[43mi[49m[43m][49m[43m[[49m[38;5;241;43m0[39;49m[43m][49m[43m)[49m[38;5;241m+[39m[38;5;241m1[39m):
+[1;32m      4[0m         [38;5;28;01mfor[39;00m p2 [38;5;129;01min[39;00m [38;5;28mrange[39m([38;5;241m1[39m, [38;5;28mlen[39m(ds_len[i][[38;5;241m1[39m])[38;5;241m+[39m[38;5;241m1[39m):
+[1;32m      5[0m             [38;5;28;01mwith[39;00m [38;5;28mopen[39m([38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mdata_path[38;5;132;01m}[39;00m[38;5;124mneedle_outputs/train-test/ds[39m[38;5;132;01m{[39;00mi[38;5;241m+[39m[38;5;241m1[39m[38;5;132;01m}[39;00m[38;5;124m_proteins_[39m[38;5;132;01m{[39;00mp1[38;5;132;01m}[39;00m[38;5;124m_[39m[38;5;132;01m{[39;00mp2[38;5;132;01m}[39;00m[38;5;124m.txt[39m[38;5;124m'[39m) [38;5;28;01mas[39;00m f:
+
+[0;31mTypeError[0m: object of type 'int' has no len()
+
+========================================
+CTDDG preprocessing FAILED
+nbconvert exit code: 1
+Date: Tue Aug 25 08:49:18 IST 2026
+========================================

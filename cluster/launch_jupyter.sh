@@ -19,7 +19,7 @@
 #SBATCH --cpus-per-task=8
 #SBATCH --gres=gpu:2
 #SBATCH --mem=60G
-#SBATCH --time=48:00:00
+#SBATCH --time=23:59:59
 #SBATCH --output=cluster/jupyter_%j.log
 #SBATCH --error=cluster/jupyter_%j.err
 
